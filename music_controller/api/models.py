@@ -2,10 +2,17 @@ from django.db import models
 import string
 import random
 
+#  a digit code that represent the rooms
 def generate_unique_code():
     length = 7
     while True:
-        code = ''.join(random.choices(string.ascii_uppercase))
+        # randome.choices randomly choose a letter from string.ascii_uppercase and it is about the strings, so the length of the string will be 7.
+        # ''.join() ==> between each letter whatever it is (''), it is like a sepratore
+        code = ''.join(random.choices(string.ascii_uppercase, k=length))
+        # all of the room objects filtered by the specific code that has been generated
+        if Room.objects.filter(code = code).count() == 0:
+            break
+    return code        
 
 class Room(models.Model):
     code = models.CharField(max_length=8, default="", unique = True)
@@ -14,13 +21,4 @@ class Room(models.Model):
     votes_to_skip = models.IntegerField(null=False, default=1)
     created_at = models.DateTimeField(auto_now_add=True)
     
-    # class Meta:
-    #     verbose_name = _("")
-    #     verbose_name_plural = _("s")
-
-    # def __str__(self):
-    #     return self.name
-
-    # def get_absolute_url(self):
-    #     return reverse("_detail", kwargs={"pk": self.pk})
-
+ 
