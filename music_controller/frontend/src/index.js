@@ -1,2 +1,1 @@
-from django.shortcuts import render
-
+import App from './components/App'
