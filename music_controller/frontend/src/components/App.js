@@ -8,7 +8,7 @@ export default class App extends Component{
     render() {
         return (
                 <h1>
-                    Testing my React App
+                   Testing :) 
                 </h1>
         )
     }
