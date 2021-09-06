@@ -8,9 +8,9 @@ export default class RoomJoinPage extends Component{
     }
     render(){
         return(
-            <p>
-                This is the first Room 🤔
-            </p>
+            <strong>
+                This is the join Room 🤔
+            </strong>
         )
     }
 }
